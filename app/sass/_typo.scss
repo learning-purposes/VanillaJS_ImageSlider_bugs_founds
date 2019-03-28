@@ -1,0 +1,77 @@
+html,
+.root {
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+}
+
+body,
+.article {
+  background-color: $alt-color-lighter;
+  color:$alt-color-darker;
+}
+
+h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5{
+  font-family: $font-family-header;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-large;
+  line-height: $line-height-default;
+  margin-top: 27px;
+  margin-bottom: 54px;
+  font-weight: 700;
+}
+
+h2,
+.h2 {
+  font-size: $font-size-medium;
+  line-height: $line-height-default;
+  margin-top: 27px;
+  margin-bottom: 27px;
+  font-weight: 700;
+}
+
+.entry__item-title {
+  font-weight: 400;
+}
+
+h3,
+.h3,
+.intro {
+  font-size: $font-size-medium;
+  line-height: $line-height-default;
+  margin-top: 27px;
+  margin-bottom: 27px;
+}
+
+h4,
+.h4,
+.breakcrumb,h5,.h5 {
+  font-size: $font-size-default;
+  line-height: $line-height-default/2;
+  margin-top:0;
+
+}
+
+
+h6,
+.h6,
+.description,
+.date,
+.time {
+  font-size: $font-size-small;
+}
+
+ul,
+ol,
+  {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0;
+}
+
+
+ul li {
+  list-style: none;
+}

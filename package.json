@@ -1,0 +1,30 @@
+{
+  "name": "imageslider",
+  "version": "1.0.0",
+  "description": "Image Slider using VanillaJS",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "^2.10.2",
+    "kanbasu": "^2.5.0"
+  },
+  "scripts": {
+    "start": "npm run lint & npm run test & node app/js/main.js",
+    "lint": "jshint app/js/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinous22/imageSlider.git"
+  },
+  "keywords": [
+    "vanillajs",
+    "js",
+    "javascript"
+  ],
+  "author": "Mannar Hielal",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/vinous22/imageSlider/issues"
+  },
+  "homepage": "https://github.com/vinous22/imageSlider#readme"
+}
