@@ -15,19 +15,20 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     let elements = document.querySelectorAll(".imageslider__item");
-    let nextBtn = document.getElementById("slideshow__element--next");
-    let prevBtn = document.getElementById("slideshow__element--prev");
+    let nextBtn = document.querySelector(".imageslider__nav--next");
+    let prevBtn = document.querySelector(".imageslider__nav--prev");
     let counter = 1;
+
     // the counter divs
-    let htmlCounterTotal = document.querySelector(".imageslider__counter__total");
-    let htmlCounterCurrent = document.querySelector(".imageslider__counter__current");
+    let htmlCounterTotal = document.querySelector(".imageslider__counter--total");
+    let htmlCounterCurrent = document.querySelector(".imageslider__counter--current");
 
     // setting the counter content
     htmlCounterTotal.textContent = elements.length;
     htmlCounterCurrent.textContent = counter;
 
     function setActiveSlide(current, nextIndex) {
-        let activeClass = ".imageslider__item" + nextIndex;
+        let activeClass = ".imageslider__item--" + nextIndex;
         let targetedElement = document.querySelector(activeClass);
         // remove active class from all elements
         current.classList.remove('active');

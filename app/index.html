@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- test comment -->
+<html class="no-js" lang="en">
 
 <head>
     <title>ImageSlider - Homepage</title>
@@ -16,52 +16,52 @@
             <h2>How to use:</h2>
 
             <p>Click on the arrow to navigate, or on your keyboard arrows.</p>
-            <div class="imageslider-container text-center" id="imageslider-container">
-                <h3 class="imageslider__counter text-center">
-                    <span class="imageslider__counter__current"></span> /
-                    <span class="imageslider__counter__total"></span>
+            <div class="imageslider text-center" id="imageslider-container">
+                <h3 class="imageslider__counter">
+                    <span class="imageslider__counter--current"></span> /
+                    <span class="imageslider__counter--total"></span>
                 </h3>
-                <figure class="imageslider__item imageslider__item1 active fade">
 
+                <figure class="imageslider__item imageslider__item--1 active fade">
                     <img src="./img/pic01.jpg" alt="flowers" class="imageslider__img img-responsive">
-                    <figcaption class="imagaslider_desc text-center">Beauty is in the eyes of the beholders</figcaption>
+                    <figcaption class="imageslider__desc">Beauty is in the eyes of the beholders
+                    </figcaption>
                 </figure>
 
-                <figure class="imageslider__item imageslider__item2 fade">
+                <figure class="imageslider__item imageslider__item--2 fade">
                     <img src="./img/pic02.jpg" alt="flowers" class="imageslider__img img-responsive">
-                    <figcaption class="imagaslider_desc text-center">one picture worths 1000 words.</figcaption>
+                    <figcaption class="imageslider__desc">one picture worths 1000 words.</figcaption>
                 </figure>
 
-                <figure class="imageslider__item imageslider__item3 fade">
+                <figure class="imageslider__item imageslider__item--3 fade">
                     <img src="./img/pic03.jpg" alt="flowers" class="imageslider__img img-responsive">
-                    <figcaption class="imagaslider_desc text-center">Be Happy!</figcaption>
+                    <figcaption class="imageslider__desc">Be Happy!</figcaption>
                 </figure>
 
-                <figure class="imageslider__item imageslider__item4 fade">
+                <figure class="imageslider__item imageslider__item--4 fade">
                     <img src="./img/pic04.jpg" alt="flowers" class="imageslider__img img-responsive">
-                    <figcaption class="imagaslider_desc text-center">you don't like where you are? move, you are not a
+                    <figcaption class="imagaslider__desc">you don't like where you are? move, you are not a
                         tree :)</figcaption>
                 </figure>
 
-                <div class="slideshow__icon  slideshow__element--prev slideshow__icon--prev"
-                    id="slideshow__element--prev">
-                    <a>&#10094;</a>
+                <div class="imageslider__nav imageslider__nav--prev">
+                    <button class="imageslider__btn">&#10094;</button>
                 </div>
 
-                <div class="slideshow__icon  slideshow__element--next slideshow__icon--next"
-                    id="slideshow__element--next">
-                    <a>&#10095;</a>
+                <div class="imageslider__nav imageslider__nav--next">
+                    <button class="imageslider__btn">&#10095;</button>
                 </div>
             </div>
+
+
         </main>
 
         <footer class="text-center date">
-            <span> Done without a morning coffee by: <a class="link"
+            <span> Done with a morning coffee by: <a class="link"
                     href="mailto:Mannar.Hielal@liip.ch">Mannar.Hielal@liip.ch</a>
             </span>
         </footer>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"> </script>
 </body>
 

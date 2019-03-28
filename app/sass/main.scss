@@ -74,8 +74,10 @@
 @import '../../node_modules/kanbasu/src/scss/components/pusher';
 @import '../../node_modules/kanbasu/src/scss/components/table-responsive';
 
+/**
+ * My own styles
+ */
 
 @import "base";
-@import "index";
 @import "_mystyles";
-@import "typo";
+@import "_typo";
