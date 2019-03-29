@@ -4,12 +4,6 @@
  * @version 1.0
  * How next and prev button work:
  * 
- * Capture the button.
- * Add an event lister to it.
- * Increase/decrease the counter.
- * Get all items/ elements.
- * Remove the class active from all elements.
- * Add the class active to the item with the counter specifically.
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,6 +16,39 @@ document.addEventListener("DOMContentLoaded", function () {
     // the counter divs
     let htmlCounterTotal = document.querySelector(".imageslider__counter--total");
     let htmlCounterCurrent = document.querySelector(".imageslider__counter--current");
+    let dots = document.querySelector(".dot");
+    let stopBtn = document.querySelector(".imageslider__btn--stop");
+
+    let options = { 'effect': 'fade', 'controls': true, 'automatic': false };
+
+    let automatic = options['automatic'];
+    let controls = options['controls'];
+    stopBtn.addEventListener('click', checkAutomatic);
+
+    var refreshIntervalId;
+
+    function autoPlay(automatic) {
+        toggleControls();
+        if (automatic) {
+            refreshIntervalId = setInterval(navNext, 3000);
+        }
+        else {
+            clearInterval(refreshIntervalId);
+        }
+        console.log(automatic);
+    }
+    function checkAutomatic() {
+        if (!automatic) { automatic = true; }
+        else { automatic = false; }
+        autoPlay(automatic);
+    }
+    function toggleControls() {
+        let arrows = document.querySelectorAll(".imageslider__nav");
+        console.log(arrows);
+        for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.toggle('hidden');
+        }
+    }
 
     // setting the counter content
     htmlCounterTotal.textContent = elements.length;
@@ -36,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
         targetedElement.classList.add('active');
         // set the content of dynamisch current counter
         htmlCounterCurrent.textContent = nextIndex;
+
+
     }
     /**
      * Function: Next navigation
@@ -43,19 +72,33 @@ document.addEventListener("DOMContentLoaded", function () {
     function navNext() {
         let element = document.querySelector(".imageslider__item.active");
         counter++;
+        if (counter > 1 && !automatic) {
+            prevBtn.classList.remove('hidden');
+        }
         if (counter > elements.length) counter = 1;
         setActiveSlide(element, counter);
+        if (counter == elements.length) {
+            nextBtn.classList.add('hidden');
+        }
     }
+
     /**
      * Function: prev navigation
      */
+
     function navPrev() {
         let element = document.querySelector(".imageslider__item.active");
         counter--;
+        if (counter > 0 && !automatic) {
+            nextBtn.classList.remove('hidden');
+        }
         if (counter <= 0) {
             counter = elements.length;
         }
         setActiveSlide(element, counter);
+        if (counter == 1) {
+            prevBtn.classList.add('hidden');
+        }
     }
     nextBtn.addEventListener('click', navNext);
     prevBtn.addEventListener('click', navPrev);
