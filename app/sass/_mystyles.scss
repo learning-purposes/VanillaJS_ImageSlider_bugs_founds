@@ -102,17 +102,16 @@
  * image slide
  */
  .imageslider-wrapper{// needed for sliding
-   overflow:hidden;
-   margin: 0 auto;
-   width:700px;
+  overflow:hidden;
+   margin:auto;
+   width:70%;
+  //  border:5px solid black;
  }
 .imageslider{
   position: relative;
+  display:flex;
   margin: 0 auto;
-  display: block;
-  display: flex;
-
-  width: 2800px; // TODO calc width of all childs
+  width: 100%; // TODO calc width of all childs
   // width: 4*70%;
 
  -webkit-transition:all 1.0s ease-in-out;// needed for sliding
@@ -123,19 +122,28 @@
 .effect--slide{
 transform: translateX(-706px);
 }
+.imageslider-wrapper header{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .imageslider__item{
   margin: 1em 0;
   display:none;
   padding:0;
   margin:0;
-  width: 700px;
+  // width: 700px;
+  max-width: 100%;
 }
 .imageslider__item.active{
-  display:block;
+  display:inline-block;
 }
 .imageslider__img{
   box-shadow: 2px 2px 4px $alt-color-dark;
   margin: 0 auto;
+  display:inline-block;
+  
 }
 .imageslider__desc{
   font-style: italic;

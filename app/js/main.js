@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let infinateBtn = document.querySelector(".effect__item--infinate");
     let autoPlayBtn = document.querySelector(".effect__item--autoPlay");
 
-
     let controlDots = document.querySelector(".control--dots");
     let counter = 1;
-
 
     // the counter divs
     let htmlCounterTotal = document.querySelector(".imageslider__counter--total");
@@ -36,9 +34,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let effect = options['effect'];
     let infinate = options['infinate'];
 
+    // get the size of the image
+    const size = elements[0].clientWidth;
+    console.log(size);
 
     autoPlayFun(autoPlay, controls);
 
+    /**
+     * Function: AutoPlayFun
+     */
     function autoPlayFun(autoPlay, controls) {
 
         if (autoPlay == true) {
@@ -75,7 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-
+    /**
+     * Function: setActiveSlide: it set the active slide and determine the effect
+     */
     function setActiveSlide(current, nextIndex, effect) {
         let activeClass = ".imageslider__item--" + nextIndex;
         let targetedElement = document.querySelector(activeClass);
@@ -85,13 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
             current.classList.remove('active');
             // add active class to the targetedElement
             targetedElement.classList.add('active');
+            // targetedElement.classList.add('effect--fade');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].classList.add('fade');
+            }
         }
         if (effect == 'slide') {
             current.classList.remove('fade');
             current.classList.remove('active');
             // add active class to the targetedElement
             targetedElement.classList.add('active');
-            imageslider.classList.add('effect--slide');
+
+            elements.classList.add('effect--slide');
         }
         // set the content of dynamisch current counter
         htmlCounterCurrent.textContent = nextIndex;
@@ -156,7 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         setActiveSlide(element, counter, effect);
-
     }
     function toggleInfinate() {
         if (!infinate) {
@@ -183,7 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
     nextBtn.addEventListener('click', navNext);
     prevBtn.addEventListener('click', navPrev);
     autoPlayBtn.addEventListener('click', function () {
-
         toggleAutoplay();
         autoPlayFun(autoPlay, controls);
         autoPlayBtn.classList.toggle('effect--active');
@@ -200,9 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
         slideBtn.classList.toggle('effect--active');
     });
     infinateBtn.addEventListener('click', function () {
-        toggleInfinate();
         controls = true;
         autoPlay = false;
+        toggleInfinate();
         autoPlayFun(autoPlay, controls);
         autoPlayBtn.classList.remove('effect--active');
         infinateBtn.classList.toggle('effect--active');

@@ -17,45 +17,56 @@
 
             <p>Click on the arrow to navigate, or your right and left keyboard arrows.</p>
             <div class="imageslider-wrapper">
-
-                <h3 class="imageslider__counter text-center">
-                    <div class="effect">
+                <header>
+                    <h3 class="imageslider__counter text-center">
+                        <span class="imageslider__counter--current"></span> /
+                        <span class="imageslider__counter--total"></span>
+                    </h3>
+                    <div class="imageslider__effect">
                         <button class="effect__item effect__item--fade">Fade</button>
                         <button class="effect__item effect__item--slide">Slide</button>
                         <button class="effect__item effect__item--infinate">Infinate</button>
                         <button class="effect__item effect__item--autoPlay">AutoPlay</button>
                     </div>
+                </header>
 
-                    <span class="imageslider__counter--current"></span> /
-                    <span class="imageslider__counter--total"></span>
-                </h3>
                 <div class="imageslider text-center" id="imageslider-container">
-                    <figure class="imageslider__item imageslider__item--1 active fade">
-                        <img src="./img/pic01.jpg" alt="flowers" class="imageslider__img img-responsive">
+
+                    <!-- <figure class="imageslider__item imageslider__item--4" id="lastClone">
+                        <img src="./img/pic04.jpg" alt="flowers" class="imageslider__img">
+                        <figcaption class="imageslider__desc">you don't like!</figcaption>
+                    </figure> -->
+
+                    <figure class="imageslider__item imageslider__item--1 active">
+                        <img src="./img/pic01.jpg" alt="flowers" class="imageslider__img">
                         <figcaption class="imageslider__desc">Beauty is in the eyes of the beholders
                         </figcaption>
                     </figure>
 
-                    <figure class="imageslider__item imageslider__item--2 fade">
-                        <img src="./img/pic02.jpg" alt="flowers" class="imageslider__img img-responsive">
+                    <figure class="imageslider__item imageslider__item--2">
+                        <img src="./img/pic02.jpg" alt="flowers" class="imageslider__img">
                         <figcaption class="imageslider__desc">one picture worths 1000 words.</figcaption>
                     </figure>
 
-                    <figure class="imageslider__item imageslider__item--3 fade">
-                        <img src="./img/pic03.jpg" alt="flowers" class="imageslider__img img-responsive">
+                    <figure class="imageslider__item imageslider__item--3">
+                        <img src="./img/pic03.jpg" alt="flowers" class="imageslider__img">
                         <figcaption class="imageslider__desc">Be Happy!</figcaption>
                     </figure>
 
-                    <figure class="imageslider__item imageslider__item--4 fade">
-                        <img src="./img/pic04.jpg" alt="flowers" class="imageslider__img img-responsive">
+                    <figure class="imageslider__item imageslider__item--4">
+                        <img src="./img/pic04.jpg" alt="flowers" class="imageslider__img">
                         <figcaption class="imageslider__desc">you don't like!</figcaption>
                     </figure>
+
+                    <!-- <figure class="imageslider__item imageslider__item--1" id="firstClone">
+                        <img src="./img/pic01.jpg" alt="flowers" class="imageslider__img">
+                        <figcaption class="imageslider__desc">Beauty is in the eyes of the beholders
+                        </figcaption>
+                    </figure> -->
 
                     <div class="imageslider__nav imageslider__nav--prev">
                         <button class="imageslider__btn">&#10094;</button>
                     </div>
-
-
 
                     <div class="imageslider__nav imageslider__nav--next">
                         <button class="imageslider__btn">&#10095;</button>
@@ -63,14 +74,13 @@
 
 
                 </div>
-                <div class="control control--dots text-center">
-                    <span class="dots__item"></span>
-                    <span class="dots__item"></span>
-                    <span class="dots__item"></span>
-                    <span class="dots__item"></span>
-                </div>
             </div>
-
+            <div class="control control--dots text-center">
+                <span class="dots__item"></span>
+                <span class="dots__item"></span>
+                <span class="dots__item"></span>
+                <span class="dots__item"></span>
+            </div>
         </main>
 
         <footer class="text-center date">
