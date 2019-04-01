@@ -166,6 +166,9 @@ transform: translateX(-706px);
   left: 140px;
 }
 
+.effect--active{
+  background-color:$brand-color;
+}
 /* dots */
 .dots__item{
   cursor: pointer;

@@ -17,8 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let infinateBtn = document.querySelector(".effect__item--infinate");
     let autoPlayBtn = document.querySelector(".effect__item--autoPlay");
 
+
     let controlDots = document.querySelector(".control--dots");
     let counter = 1;
+
 
     // the counter divs
     let htmlCounterTotal = document.querySelector(".imageslider__counter--total");
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     autoPlayFun(autoPlay, controls);
 
     function autoPlayFun(autoPlay, controls) {
+
         if (autoPlay == true) {
             controls = false;
             toggleControls(controls);
@@ -52,7 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function toggleAutoplay() {
-        if (!autoPlay) { autoPlay = true; }
+        if (!autoPlay) {
+            autoPlay = true;
+        }
         else { autoPlay = false; }
     }
 
@@ -98,17 +103,30 @@ document.addEventListener("DOMContentLoaded", function () {
      * Function: Next navigation
      */
     function navNext() {
+        console.log("-----" + infinate);
         let element = document.querySelector(".imageslider__item.active");
         counter++;
         if (counter > 1 && !autoPlay) {
             prevBtn.classList.remove('hidden');
         }
-        if (counter > elements.length) counter = 1;
-        console.log(effect);
-        setActiveSlide(element, counter, effect);
-        if (counter == elements.length) {
-            nextBtn.classList.add('hidden');
+
+        // keep looping: when you reach last slide set the beginning to the last slide
+        if (infinate == true) {
+            if (counter >= elements.length) {
+                counter = 1;
+                nextBtn.classList.remove('hidden');
+            }
         }
+        // no loop: when you reach the last slide, hide the next 
+        if (infinate == false) {
+            if (counter >= elements.length) {
+                nextBtn.classList.add('hidden');
+            }
+            if (counter > elements.length) {
+                counter = 1;
+            }
+        }
+        setActiveSlide(element, counter, effect);
     }
 
     /**
@@ -117,19 +135,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function navPrev() {
         let element = document.querySelector(".imageslider__item.active");
+
         counter--;
+
         if (counter > 0 && !autoPlay) {
             nextBtn.classList.remove('hidden');
         }
-        if (counter <= 0) {
-            counter = elements.length;
+        // keep looping: when you reach first slide set the beginning to the last slide
+        if (infinate == true) {
+            if (counter <= 1) {
+                counter = elements.length;
+                prevBtn.classList.remove('hidden');
+            }
+        }
+        // no loop: when you reach the first slide 
+        if (infinate == false) {
+            if (counter <= 1) {
+                counter = 1;
+                prevBtn.classList.add('hidden');
+            }
         }
         setActiveSlide(element, counter, effect);
-        if (counter == 1) {
-            prevBtn.classList.add('hidden');
-        }
-    }
 
+    }
+    function toggleInfinate() {
+        if (!infinate) {
+            infinate = true;
+        }
+        else {
+            infinate = false;
+        }
+
+    }
 
     // function slide() {
     //     let element = document.querySelector(".imageslider__item.active");
@@ -146,15 +183,29 @@ document.addEventListener("DOMContentLoaded", function () {
     nextBtn.addEventListener('click', navNext);
     prevBtn.addEventListener('click', navPrev);
     autoPlayBtn.addEventListener('click', function () {
+
         toggleAutoplay();
         autoPlayFun(autoPlay, controls);
+        autoPlayBtn.classList.toggle('effect--active');
     });
 
-    fadeBtn.addEventListener('click', function () { effect = "fade"; });
-    slideBtn.addEventListener('click', function () { effect = "slide"; });
+    fadeBtn.addEventListener('click', function () {
+        effect = "fade";
+        slideBtn.classList.remove('effect--active');
+        fadeBtn.classList.toggle('effect--active');
+    });
+    slideBtn.addEventListener('click', function () {
+        effect = "slide";
+        fadeBtn.classList.remove('effect--active');
+        slideBtn.classList.toggle('effect--active');
+    });
     infinateBtn.addEventListener('click', function () {
-        infinate = "false";
-        infinate(infinate);
+        toggleInfinate();
+        controls = true;
+        autoPlay = false;
+        autoPlayFun(autoPlay, controls);
+        autoPlayBtn.classList.remove('effect--active');
+        infinateBtn.classList.toggle('effect--active');
     });
     window.addEventListener("keyup", function (e) {
         if (e.keyCode === 39) navNext();
