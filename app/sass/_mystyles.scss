@@ -79,18 +79,56 @@
 }
 
 /**
- * Image Slider
+ * Effects
  */
-.imageslider{
-  position: relative;
-  width:70%;
-  margin: 0 auto;
-  display: block;
+
+.effect__item{
+  display: inline-block;
+  float:left;
+  padding: 0.2em;
+  margin-right:0.5em;
+  font-size: $font-size-small;
+  border: 1px solid $alt-color-dark;
+  border-radius: 4px;
+  color:$alt-color-dark;
+  cursor: pointer;
+  &:hover{
+    background-color: $alt-color;
+  }
 }
 
+
+ /**
+ * image slide
+ */
+ .imageslider-wrapper{// needed for sliding
+   overflow:hidden;
+   margin: 0 auto;
+   width:700px;
+ }
+.imageslider{
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  display: flex;
+
+  width: 2800px; // TODO calc width of all childs
+  // width: 4*70%;
+
+ -webkit-transition:all 1.0s ease-in-out;// needed for sliding
+  -moz-transition:all 1.0s ease-in-out;// needed for sliding
+  -o-transition:all 1.0s ease-in-out;// needed for sliding
+  transition:all 1.0s ease-in-out;// needed for sliding
+}
+.effect--slide{
+transform: translateX(-706px);
+}
 .imageslider__item{
   margin: 1em 0;
   display:none;
+  padding:0;
+  margin:0;
+  width: 700px;
 }
 .imageslider__item.active{
   display:block;
@@ -106,7 +144,7 @@
   position: relative;
 }
 
-.imageslider__btn,.imageslider__btn--stop {
+.imageslider__btn {
   -webkit-appearance: none;
   background-color: transparent;
   border: none;
@@ -118,24 +156,19 @@
     }
 }
 
-.imageslider__nav--next,.imageslider__nav--prev,.imageslider__nav--stop{
+.imageslider__nav--next,.imageslider__nav--prev{
   position: absolute;
-  top: 70px;
+  top:0;
   cursor: pointer;
 }
 
 .imageslider__nav--next {
   left: 140px;
 }
-.imageslider__btn--stop{
-font-size: $font-size-small;
-  position: relative;
-  left: 60px;
-  top:13px;
-  color:$alt-color-darker;
-}
+
 /* dots */
-.dot {
+.dots__item{
+  cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
@@ -145,14 +178,14 @@ font-size: $font-size-small;
   transition: background-color 0.6s ease;
 }
 .dot--active {
-  background-color: #717171;
+  background-color:black;
 }
 
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
-  animation-name: fade;
+  animation-name:fade;
   animation-duration: 2.5s;
 }
 @keyframes fade {
